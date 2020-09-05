@@ -46,14 +46,25 @@ app.get("/api/v1/restaurants/:id", async (req, res) => {
 })
 
 // Create a restaurant
-app.post("/api/v1/restaurants", (req, res) => {
+app.post("/api/v1/restaurants", async (req, res) => {
     console.log(req.body)
-    res.status(201).json({
-        status: "success",
-        data: {
-            restaurants: ["McDonald's"]
-        }
-    })
+
+    try {
+        const results = await db.query("insert into restaurants (name, location, price_range) values ($1, $2, $3) returning *", [req.body.name, 
+            req.body.location, req.body.price_range])
+
+        console.log(results)
+        res.status(201).json({
+            status: "success",
+            data: {
+                restaurants: results.rows[0]
+            }
+        })
+        
+    } catch (error) {
+        console.log(error)
+    }
+    
 })
 
 // Update restaurant
