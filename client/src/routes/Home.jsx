@@ -10,7 +10,6 @@ const Home = () => {
     return (
         <div>
             <Header />
-            <AddRestaurant />
             <RestaurantList restaurants={{ restaurants, setRestaurants }} />
         </div>
     )
