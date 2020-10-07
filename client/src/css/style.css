@@ -17,3 +17,8 @@
 .container {
     padding-bottom: 30px;
 }
+
+.detail-image {
+    width:  550px;
+    height: 309px;
+}

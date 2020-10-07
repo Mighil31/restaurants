@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../css/style.css'
 import RestaurantFinder from '../apis/RestaurantFinder'
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const AddRestaurant = (props) => {
 
@@ -11,8 +11,6 @@ const AddRestaurant = (props) => {
     const [location, setLocation] = useState("")
     const [price_range, setPriceRange] = useState(1)
     const [img, setImg] = useState("")
-    const [isSubmit, setIsSubmit] = useState(0)
-    const fileInput = React.createRef();
 
     const handleSubmit = (e) => {
         e.preventDefault()

@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import RestaurantDetail from '../components/RestaurantDetail'
 
 const RestaurantDetailPage = () => {
+
+    const [restaurant, setRestaurant] = useState([])
+    
+
     return (
         <div>
-            RestaurantDetailPage
+        <RestaurantDetail restaurant={{ restaurant, setRestaurant }}/>
         </div>
     )
 }
